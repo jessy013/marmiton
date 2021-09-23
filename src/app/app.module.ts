@@ -1,3 +1,6 @@
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,11 +25,15 @@ import { BoardUserComponent } from './board-user/board-user.component';
     BoardModeratorComponent,
     BoardUserComponent
   ],
+  
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [authInterceptorProviders],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
